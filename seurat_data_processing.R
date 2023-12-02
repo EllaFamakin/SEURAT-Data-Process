@@ -129,5 +129,32 @@ cell9 <- FindNeighbors(cell9, dims = 1:10)
 cell9 <- FindClusters(cell9, resolution = 0.5)
 DimPlot(cell9, reduction = "umap", group.by ='Disease')
 
+#testing
+
+#divide disease and control into two groups to determine their population
+
+tempo_disease = subset(filtered_temporal, subset= Disease == "Pos")
+tempo_control = subset(filtered_temporal, subset= Disease == "Neg")
 
 
+
+disease_number = subset(filtered_temporal, subset= Disease == "Pos")
+control_number = subset(filtered_temporal, subset= Disease == "Pos")
+
+#get population size of disease 
+table(tempo_disease@meta.data[["Disease"]])
+#no 0f disease cells = 10,668
+  
+  
+#Get the number of disease cells for each cell type in disease
+
+table(tempo_disease@meta.data[["seurat_clusters"]])
+
+#get population size of contro= l7021
+
+table(tempo_control@meta.data[["Disease"]])
+#number of control cells =3127
+
+#Get the number of healthy  cells for each cell type in control
+
+table(tempo_control@meta.data[["seurat_clusters"]])
